@@ -40,14 +40,16 @@ const Header = () => {
       {/* Left Navigation */}
       <nav className="flex items-center space-x-8">
         <div className="relative">
-          <button onClick={() => handleDropdownClick('store')} className="text-black hover:text-gray-600 transition-colors mx-[80px] text-sm font-medium rounded-none text-left">Магазин</button>
+          <button onClick={() => handleDropdownClick('store')} className="text-sm font-medium text-black hover:text-gray-600 transition-colors">
+            STORE
+          </button>
           <DropdownMenu items={storeItems} isOpen={activeDropdown === 'store'} onClose={closeDropdown} />
         </div>
         <a href="#" className="text-sm font-medium text-black hover:text-gray-600 transition-colors">
           COLLECTIONS
         </a>
         <div className="relative">
-          <button onClick={() => handleDropdownClick('information')} className="text-sm font-medium text-black hover:text-gray-600 transition-colors">
+          <button onClick={() => handleDropdownClick('information')} className="text-sm font-medium text-black hover:text-gray-600 transition-colors mx-[150px]">
             INFORMATION
           </button>
           <DropdownMenu items={informationItems} isOpen={activeDropdown === 'information'} onClose={closeDropdown} />
