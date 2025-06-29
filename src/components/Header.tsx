@@ -1,31 +1,24 @@
+
 import React, { useState } from 'react';
 import { Heart, LogIn, ShoppingCart } from 'lucide-react';
 import DropdownMenu from './DropdownMenu';
+
 const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const storeItems = [{
-    label: 'T-SHIRTS',
-    href: '/tshirts'
-  }, {
-    label: 'JACKETS',
-    href: '/jackets'
-  }, {
-    label: 'PANTS',
-    href: '/pants'
-  }, {
-    label: 'ACCESSORIES',
-    href: '/accessories'
-  }];
-  const informationItems = [{
-    label: 'About us',
-    href: '/about'
-  }, {
-    label: 'Delivery and information',
-    href: '/delivery'
-  }, {
-    label: 'Contacts',
-    href: '/contacts'
-  }];
+
+  const storeItems = [
+    { label: 'T-SHIRTS', href: '/tshirts' },
+    { label: 'JACKETS', href: '/jackets' },
+    { label: 'PANTS', href: '/pants' },
+    { label: 'ACCESSORIES', href: '/accessories' }
+  ];
+
+  const informationItems = [
+    { label: 'About us', href: '/about' },
+    { label: 'Delivery and information', href: '/delivery' },
+    { label: 'Contacts', href: '/contacts' }
+  ];
+
   const handleDropdownClick = (dropdown: string) => {
     if (activeDropdown === dropdown) {
       setActiveDropdown(null);
@@ -33,26 +26,43 @@ const Header = () => {
       setActiveDropdown(dropdown);
     }
   };
+
   const closeDropdown = () => {
     setActiveDropdown(null);
   };
-  return <header className="bg-white border-b border-gray-100 h-12 flex items-center justify-between px-6 relative">
+
+  return (
+    <header className="bg-white border-b border-gray-100 h-12 flex items-center justify-between px-6 relative">
       {/* Left Navigation */}
       <nav className="flex items-center space-x-8">
         <div className="relative">
-          <button onClick={() => handleDropdownClick('store')} className="text-sm font-medium text-black hover:text-gray-600 transition-colors">
+          <button 
+            onClick={() => handleDropdownClick('store')}
+            className="text-sm font-medium text-black hover:text-gray-600 transition-colors"
+          >
             STORE
           </button>
-          <DropdownMenu items={storeItems} isOpen={activeDropdown === 'store'} onClose={closeDropdown} />
+          <DropdownMenu 
+            items={storeItems}
+            isOpen={activeDropdown === 'store'}
+            onClose={closeDropdown}
+          />
         </div>
         <a href="#" className="text-sm font-medium text-black hover:text-gray-600 transition-colors">
           COLLECTIONS
         </a>
         <div className="relative">
-          <button onClick={() => handleDropdownClick('information')} className="text-sm font-medium text-black hover:text-gray-600 transition-colors mx-[150px]">
+          <button 
+            onClick={() => handleDropdownClick('information')}
+            className="text-sm font-medium text-black hover:text-gray-600 transition-colors"
+          >
             INFORMATION
           </button>
-          <DropdownMenu items={informationItems} isOpen={activeDropdown === 'information'} onClose={closeDropdown} />
+          <DropdownMenu 
+            items={informationItems}
+            isOpen={activeDropdown === 'information'}
+            onClose={closeDropdown}
+          />
         </div>
       </nav>
 
@@ -77,7 +87,14 @@ const Header = () => {
       </nav>
 
       {/* Overlay to close dropdown when clicking outside */}
-      {activeDropdown && <div className="fixed inset-0 z-40" onClick={closeDropdown} />}
-    </header>;
+      {activeDropdown && (
+        <div 
+          className="fixed inset-0 z-40" 
+          onClick={closeDropdown}
+        />
+      )}
+    </header>
+  );
 };
+
 export default Header;
