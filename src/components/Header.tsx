@@ -32,13 +32,13 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white border-b border-gray-100 h-12 flex items-center justify-between px-6 relative">
-      {/* Left Navigation - moved 80px to the right */}
-      <nav className="flex items-center space-x-8" style={{ marginLeft: '80px' }}>
+    <header className="bg-white border-b border-gray-100 h-12 flex items-center justify-between px-2 sm:px-6 relative">
+      {/* Left Navigation - responsive positioning */}
+      <nav className="flex items-center space-x-2 sm:space-x-8 ml-0 sm:ml-20">
         <div className="relative">
           <button 
             onClick={() => handleDropdownClick('store')}
-            className="text-sm font-medium text-black hover:text-gray-600 transition-colors"
+            className="text-xs sm:text-sm font-medium text-black hover:text-gray-600 transition-colors"
           >
             STORE
           </button>
@@ -48,15 +48,15 @@ const Header = () => {
             onClose={closeDropdown}
           />
         </div>
-        <a href="#" className="text-sm font-medium text-black hover:text-gray-600 transition-colors">
+        <a href="#" className="text-xs sm:text-sm font-medium text-black hover:text-gray-600 transition-colors">
           COLLECTIONS
         </a>
         <div className="relative">
           <button 
             onClick={() => handleDropdownClick('information')}
-            className="text-sm font-medium text-black hover:text-gray-600 transition-colors"
+            className="text-xs sm:text-sm font-medium text-black hover:text-gray-600 transition-colors"
           >
-            INFORMATION
+            INFO
           </button>
           <DropdownMenu 
             items={informationItems}
@@ -68,21 +68,21 @@ const Header = () => {
 
       {/* Center Logo */}
       <div className="absolute left-1/2 transform -translate-x-1/2">
-        <div className="text-lg font-bold text-black">
+        <div className="text-base sm:text-lg font-bold text-black">
           WACK
         </div>
       </div>
 
-      {/* Right Navigation - moved 80px to the left */}
-      <nav className="flex items-center space-x-6" style={{ marginRight: '80px' }}>
+      {/* Right Navigation - responsive positioning */}
+      <nav className="flex items-center space-x-3 sm:space-x-6 mr-0 sm:mr-20">
         <button className="text-black hover:text-gray-600 transition-colors">
-          <Heart size={18} />
+          <Heart size={16} className="sm:w-[18px] sm:h-[18px]" />
         </button>
         <button className="text-black hover:text-gray-600 transition-colors">
-          <LogIn size={18} />
+          <LogIn size={16} className="sm:w-[18px] sm:h-[18px]" />
         </button>
         <button className="text-black hover:text-gray-600 transition-colors">
-          <ShoppingCart size={18} />
+          <ShoppingCart size={16} className="sm:w-[18px] sm:h-[18px]" />
         </button>
       </nav>
 
