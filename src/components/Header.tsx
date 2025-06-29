@@ -33,8 +33,8 @@ const Header = () => {
 
   return (
     <header className="bg-white border-b border-gray-100 h-12 flex items-center justify-between px-6 relative">
-      {/* Left Navigation */}
-      <nav className="flex items-center space-x-8">
+      {/* Left Navigation - moved 80px to the right */}
+      <nav className="flex items-center space-x-8" style={{ marginLeft: '80px' }}>
         <div className="relative">
           <button 
             onClick={() => handleDropdownClick('store')}
@@ -73,8 +73,8 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Right Navigation */}
-      <nav className="flex items-center space-x-6">
+      {/* Right Navigation - moved 80px to the left */}
+      <nav className="flex items-center space-x-6" style={{ marginRight: '80px' }}>
         <button className="text-black hover:text-gray-600 transition-colors">
           <Heart size={18} />
         </button>
