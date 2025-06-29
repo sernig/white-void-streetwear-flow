@@ -27,7 +27,9 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ items, isOpen, onClose }) =
             onClick={onClose}
           >
             <span>{item.label}</span>
-            <ArrowRight size={14} className="text-gray-400 group-hover:text-black transition-colors" />
+            {item.label !== 'Delivery and information' && (
+              <ArrowRight size={14} className="text-gray-400 group-hover:text-black transition-colors" />
+            )}
           </a>
         ))}
       </div>
